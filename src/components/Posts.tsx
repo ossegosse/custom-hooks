@@ -1,37 +1,21 @@
-import axios, { AxiosResponse } from "axios";
 import { useEffect, useState } from "react";
+import useFetch from "../hooks/useFetch";
 
-interface Post {
+interface data {
     id: number;
     title: string;
     body: string;
 }
 
 const Posts: React.FC = () => {
-    useEffect(() => {
-        getPosts();
-    }, []);
-
-    const [posts, setPosts] = useState<Post[]>();
-
-    const getPosts = async () => {
-        try {
-            const res: AxiosResponse<Post[]> = await axios.get(
-                `https://jsonplaceholder.typicode.com/posts?_limit=10`
-            );
-            setPosts(res.data);
-            console.log(posts);
-        } catch (err) {
-            console.error(err);
-        }
-    };
+    const [data] = useFetch(`https://jsonplaceholder.typicode.com/posts?_limit=3`)
 
     return (
         <ul>
-            {posts?.map((post) => (
-                <li key={post.id}>
-                    title: {post.title},
-                    <div>body: {post.body} </div>
+            {data?.map((data) => (
+                <li key={data.id}>
+                    title: {data.title},
+                    <div>body: {data.body} </div>
                     <hr />
                     <br />
                 </li>
