@@ -1,7 +1,13 @@
 import { useState, useEffect } from "react";
 
+interface data {
+  id: number;
+  title: string;
+  body: string;
+}
+
 const useFetch = (url: string) => {
-  const [data, setData] = useState(null);
+  const [data, setData] = useState<data[] | null>(null)
 
   useEffect(() => {
     fetch(url)

@@ -1,6 +1,7 @@
 
 import Counter from './components/Counter'
 import Posts from './components/Posts'
+import Toggle  from './components/Toggle'
 import './App.css'
 
 function App() {
@@ -13,7 +14,7 @@ function App() {
       <Counter initialCount={100} minValue={100} maxValue={200} step={20}/>
       
       <Posts />
-      
+      <Toggle positive="true" negative="false"/>
     </>
   )
 }

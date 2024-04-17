@@ -1,11 +1,7 @@
-import { useEffect, useState } from "react";
+
 import useFetch from "../hooks/useFetch";
 
-interface data {
-    id: number;
-    title: string;
-    body: string;
-}
+
 
 const Posts: React.FC = () => {
     const [data] = useFetch(`https://jsonplaceholder.typicode.com/posts?_limit=3`)
